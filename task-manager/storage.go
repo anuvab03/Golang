@@ -1,4 +1,4 @@
-package taskmanager
+package main
 
 import (
 	"encoding/json"
@@ -10,7 +10,7 @@ func loadTasks() ([]Task, error){
 	if _, err:=os.Stat(fileName);os.IsNotExist(err){
 		return []Task{}, nil
 	}
-	data, err :- os.ReadFile(fileName)
+	data, err := os.ReadFile(fileName)
 	if err !=nil{
 		return nil, err
 	}
@@ -25,5 +25,5 @@ func saveTasks(tasks []Task) error{
 	if err!=nil{
 		return err
 	}
-	return os.WriteFile((fileName,data,0644))
+	return os.WriteFile(fileName,data,0644)
 }
